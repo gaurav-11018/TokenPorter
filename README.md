@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Token Porter
+Token Porter is a web application that allows users to connect their wallet, display their address and token balance, and transfer tokens from your account to any account you want.
 
-## Getting Started
+# Import Links:
+`
+deployed website: https://token-porter.vercel.app/
+video demo:https: //youtu.be/M7lBlJXRaQk
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Installation
+Clone this repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+`git clone https://github.com/gaurav-11018/token-porter.git`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Change into the project directory:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+`cd token-porter`
 
-## Learn More
+Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+`npm install`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`npm run dev`
+Open your browser and navigate to http://localhost:3000.
 
-## Deploy on Vercel
+### OR JUST SKIP ALL THAT AND SEE THE DEPLOYED WEBSITE HERE: https://token-porter.vercel.app/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project Structure
+hooks: Contains custom React hooks for managing the application's state and behavior.
+pages: Contains the main page components for the application.
+public: Contains static files such as images, styles, and other assets.
+styles: Contains global styles for the application.
+
+## Hooks
+
+### useEthersProvider:
+This hook is responsible for connecting to an Ethereum wallet using the MetaMask browser extension. It returns the provider instance, the connected account, and a function to connect the wallet.
+
+### useTokenBalance:
+This hook fetches the token balance of the connected account. It takes the account address and provider as arguments and returns the token balance.
+
+### useTokenTransfer: 
+This hook handles the token transfer process. It takes the provider, sender address, recipient address, and token amount as arguments, and returns a function to initiate the transfer.
+
+# Navbar: This component displays the navigation bar with a Connect button for connecting to an Ethereum wallet.
+
+# AccountInfo: This component displays the connected Ethereum address and token balance.
+
+
+License
+This project is licensed under the MIT License.
