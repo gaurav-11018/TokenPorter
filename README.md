@@ -48,10 +48,12 @@ This hook fetches the token balance of the connected account. It takes the accou
 ### useTokenTransfer: 
 This hook handles the token transfer process. It takes the provider, sender address, recipient address, and token amount as arguments, and returns a function to initiate the transfer.
 
-# Navbar: This component displays the navigation bar with a Connect button for connecting to an Ethereum wallet.
+### Navbar:
+This component displays the navigation bar with a Connect button for connecting to an Ethereum wallet.
 
-# AccountInfo: This component displays the connected Ethereum address and token balance.
+### AccountInfo: 
+This component displays the connected Ethereum address and token balance.
 
 
-License
+# License
 This project is licensed under the MIT License.
