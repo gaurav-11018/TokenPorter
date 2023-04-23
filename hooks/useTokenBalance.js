@@ -1,27 +1,30 @@
-// hooks/useTokenBalance.js
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
-const useTokenBalance = (provider, account, tokenContractAddress) => {
-  const [tokenBalance, setTokenBalance] = useState("");
+const { utils } = ethers;
+
+const useTokenBalance = (provider, account) => {
+  const [tokenBalance, setTokenBalance] = useState("N/A");
 
   useEffect(() => {
     const fetchTokenBalance = async () => {
-      if (provider && account && tokenContractAddress) {
-        const token = new ethers.Contract(
-          tokenContractAddress,
-          ["function balanceOf(address) view returns (uint256)"],
-          provider
-        );
-        const balance = await token.balanceOf(account);
-        setTokenBalance(ethers.utils.formatEther(balance));
+      console.log("fetching balance with account:", account);
+      if (provider && account) {
+        try {
+          const balance = await provider.getBalance(account);
+          console.log("Balance fetched:", balance.toString());
+          setTokenBalance(ethers.utils.formatEther(balance));
+        } catch (error) {
+          console.error("Error fetching balance:", error);
+          setTokenBalance("N/A");
+        }
       } else {
-        setTokenBalance("");
+        setTokenBalance("N/A");
       }
     };
 
     fetchTokenBalance();
-  }, [provider, account, tokenContractAddress]);
+  }, [provider, account]);
 
   return { tokenBalance };
 };
